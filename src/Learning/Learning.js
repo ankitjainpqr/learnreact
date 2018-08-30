@@ -31,3 +31,9 @@
 //lecture 43
 //you can define fuction in component and call from different file.
 //how to bind parameters in a function call and definition.
+
+//lecture 45
+//learned how to create a new css file, how to import it and how to use it.
+
+//lecture 46
+//how to create a variable inside render method.
