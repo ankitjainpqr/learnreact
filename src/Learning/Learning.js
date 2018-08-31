@@ -36,4 +36,13 @@
 //learned how to create a new css file, how to import it and how to use it.
 
 //lecture 46
-//how to create a variable inside render method.
+//how to create a variable inside render method, how to put inline styling in render method
+
+//lecture 49
+//how to write conditions in render method using ternary operator of js.
+
+//lecture 50
+//how to write conditions in a more elegant way and not to use ternary operator.
+
+//*******************************whatever you write inside the render method is a javascript but whatever you write inside return method is JSX. keep this in mind*******
+
