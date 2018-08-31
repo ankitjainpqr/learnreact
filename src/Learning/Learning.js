@@ -46,3 +46,12 @@
 
 //*******************************whatever you write inside the render method is a javascript but whatever you write inside return method is JSX. keep this in mind*******
 
+
+//------------backup of App.js is taken, file name is AppJsBackup20180831.js
+
+//lecture 52
+//learned how to use map method of js to run a loop on each element of array and also write code for each element of array inside function, written inside map function.
+
+// this.state.persons.map(person =>{
+//     return <Person name={person.age} age={person.age}/>
+//   })
