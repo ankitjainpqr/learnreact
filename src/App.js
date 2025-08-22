@@ -1,64 +1,65 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import Person from './Person/Person';
-//Person can be any keyword as per your convenienece
+import PhotosPage from './PhotosPage';
+import PhotosPageNoCTA from './PhotosPageNoCTA';
 
 class App extends Component {
   state = {
-    persons:[
-      { name: "Max", age: 28 },
-      { name: "Manu", age: 29},
-      { name: "Stephanie", age: 26 }
-    ],
-    showPersons: false
+    currentPage: 'photos-with-cta'
   }
 
-  swithNameHandler = (newName) => {
-    // console.log('Was clicked!');
-    this.setState ({
-      persons:[
-        { name: newName, age: 28 },
-        { name: "Manuu", age: 29},
-        { name: "Stephanie", age: 25 }
-      ]
-    })
+  switchPage = (page) => {
+    this.setState({ currentPage: page });
   }
 
-  togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
-  }
   render() {
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
+    const { currentPage } = this.state;
 
-    let persons = null;
-    if(this.state.showPersons){
-      persons= (
-        <div>
-          {
-            this.state.persons.map(person =>{
-              return <Person name={person.age} age={person.age}/>
-            })
-          }
-        </div>
-      );
-    }
     return (
       <div className="App">
-        <h1>Hi, I am a react app</h1>
-        <p>This is really working</p>
-        <button 
-        style={style}
-        onClick={this.togglePersonsHandler}>Switch Name</button>
-        {persons}
+        {currentPage === 'photos-with-cta' && <PhotosPage />}
+        {currentPage === 'photos-no-cta' && <PhotosPageNoCTA />}
         
+        {/* Simple navigation for demo purposes */}
+        <div style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 3000,
+          background: 'white',
+          padding: '10px',
+          borderRadius: '8px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          display: 'flex',
+          gap: '10px'
+        }}>
+          <button 
+            onClick={() => this.switchPage('photos-with-cta')}
+            style={{
+              padding: '8px 16px',
+              background: currentPage === 'photos-with-cta' ? '#3b82f6' : '#e5e7eb',
+              color: currentPage === 'photos-with-cta' ? 'white' : '#374151',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer'
+            }}
+          >
+            With CTA
+          </button>
+          <button 
+            onClick={() => this.switchPage('photos-no-cta')}
+            style={{
+              padding: '8px 16px',
+              background: currentPage === 'photos-no-cta' ? '#3b82f6' : '#e5e7eb',
+              color: currentPage === 'photos-no-cta' ? 'white' : '#374151',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer'
+            }}
+          >
+            Without CTA
+          </button>
+        </div>
       </div>
     );
   }
